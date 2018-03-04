@@ -1,0 +1,56 @@
+ /* -----ALIGNMENT----- */
+.align-center {
+	text-align: center;
+}
+
+/* -----HEADER----- */
+header {
+	padding: 10px 0;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+
+.pure-g [class *= "header"] {
+	font-family: 'Alfa Slab One', cursive;
+	font-size: 4.5em;
+}
+
+/* -----EXPLANATION----- */
+.explain {
+	padding: 10px 0;
+	border: 1px solid black;
+	margin: 10px auto;
+}
+
+.pure-g [class *= "explain"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 2.0em;
+}
+
+/* -----SELECT----- */
+.select {
+	padding: 10px 0;
+	margin: 10px auto;
+	border: 1px solid black;
+}
+
+.pure-g [class *= "select"] {
+	font-family: 'Alfa Slab One', serif;
+	font-size: 3.0em;
+}
+
+/* -----BUTTONS----- */
+.greeter, .meeter {
+	padding: 10px 0;
+	margin: 10px auto;
+	border: 1px solid black;
+}
+.greeter-button, .meeter-button {
+	padding: 20px;
+	border-radius: 25px;
+}
+
+.pure-g [class *= "button-font"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 2.75em;
+}
