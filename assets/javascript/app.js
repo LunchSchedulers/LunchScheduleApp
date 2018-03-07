@@ -10,7 +10,8 @@ var exampleEvent = {
     eventAdded:1111, // unix time
     eventStartTime: 1234, // unix time
     eventEndTime: 4321, // unix time
-    eventTypeEnum: 1 // not used for now
+    eventTypeEnum: 1, // not used for now
+    eventExpiryTime: 999
 }
 
 var database;
@@ -36,16 +37,30 @@ function returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityW
 }
 
 function testPushToDatabase(){
-    
-    database.ref().push({
-        greeterName:exampleEvent.greeterName,
+    var eventToPush = putUserEntryInEventObject();
+    database.ref().push(eventToPush);
+}
 
-    });
+function putUserEntryInEventObject(){
+    var userEvent = {
+        greeterName: $("#greeterName-input").val(),
+        latitudeOfEvent: $("#lat-input").val(),
+        longitudeOfEvent: $("#long-input").val(),
+        addressOfEvent: $("#eventAddress-input").val(),
+        nameOfEventLocation: $("#locationName-input").val(),
+        eventStartTime: $("#startTime-input").val(),
+        eventEndTime: $("#endTime-input").val(),
+        eventAdded:Date.now(),
+        eventKey:Math.ceil(Math.random()*userEvent.latitudeOfEvent),
+        eventExpiryTime:userEvent.eventEndTime+(30*60)
+    }
+    console.log(userEvent);
+    return userEvent;
 }
 
 function populateFireBaseWithEventInfo(){
     // jquery to populate info for event
-    
+
     // get all exampleEvent element from HTML
     // push exampleEventObject to firebase
 }
@@ -89,6 +104,10 @@ function do_something(lat, long){
     console.log(long);
 }
 
+$("#click-button").on("click", function() {
+    console.log("clicked");
+    testPushToDatabase();
+  });
+
 getLocation();
 connectToFirebase();
-testPushToDatabase();
