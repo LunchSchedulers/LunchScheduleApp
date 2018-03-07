@@ -7,10 +7,12 @@ var exampleEvent = {
     addressOfEvent: "address",
     nameOfEventLocation: "name",
     eventKey: "math.ceiling(math.random() * latitude)",
+    eventAdded:1111, // unix time
     eventStartTime: 1234, // unix time
     eventEndTime: 4321, // unix time
     eventTypeEnum: 1 // not used for now
 }
+
 var database;
 
 // Database Helper Functions
@@ -33,26 +35,17 @@ function returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityW
     return arrayOfProximateEvents;
 }
 
-function calculateDistanceBetweenTwoPoints(latAndLongOne, latAndLongTwo){
-    // taken directly from https://www.movable-type.co.uk/scripts/latlong.html
-    var R = 6371e3; // metres
-    var φ1 = lat1.toRadians();
-    var φ2 = lat2.toRadians();
-    var Δφ = (lat2-lat1).toRadians();
-    var Δλ = (lon2-lon1).toRadians();
+function testPushToDatabase(){
+    
+    database.ref().push({
+        greeterName:exampleEvent.greeterName,
 
-    var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-            Math.cos(φ1) * Math.cos(φ2) *
-            Math.sin(Δλ/2) * Math.sin(Δλ/2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-    var d = R * c;
-
-    return d;
+    });
 }
 
 function populateFireBaseWithEventInfo(){
     // jquery to populate info for event
+    
     // get all exampleEvent element from HTML
     // push exampleEventObject to firebase
 }
@@ -81,4 +74,21 @@ function clearUserInputFields(){
     // jquery stuff
 }
 
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            do_something(position.coords.latitude, position.coords.longitude);
+          });
+    } else { 
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function do_something(lat, long){
+    console.log(lat);
+    console.log(long);
+}
+
+getLocation();
 connectToFirebase();
+testPushToDatabase();
