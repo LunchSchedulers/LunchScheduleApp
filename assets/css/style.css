@@ -4,53 +4,102 @@
 }
 
 /* -----HEADER----- */
-header {
-	padding: 10px 0;
-	border: 1px solid black;
-	margin-bottom: 10px;
-}
-
 .pure-g [class *= "header"] {
 	font-family: 'Alfa Slab One', cursive;
 	font-size: 4.5em;
 }
 
-/* -----EXPLANATION----- */
-.explain {
-	padding: 10px 0;
-	border: 1px solid black;
-	margin: 10px auto;
+	header {
+		padding: 10px 0;
+		border: 1px solid black;
+		margin-bottom: 10px;
+	}
+
+/* -----MENU----- */
+.pure-g [class *= "menu"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.05em;
 }
 
+/* -----EXPLANATION----- */
 .pure-g [class *= "explain"] {
 	font-family: 'Quattrocento', serif;
-	font-size: 2.0em;
+	font-size: 1.5em;
 }
+
+	.explain {
+		padding: 10px 0;
+		border: 1px solid black;
+		margin: 10px auto;
+	}
 
 /* -----SELECT----- */
-.select {
-	padding: 10px 0;
-	margin: 10px auto;
-	border: 1px solid black;
-}
-
 .pure-g [class *= "select"] {
 	font-family: 'Alfa Slab One', serif;
 	font-size: 3.0em;
 }
 
-/* -----BUTTONS----- */
-.greeter, .meeter {
-	padding: 10px 0;
-	margin: 10px auto;
-	border: 1px solid black;
-}
-.greeter-button, .meeter-button {
-	padding: 20px;
-	border-radius: 25px;
-}
+	.select {
+		padding: 10px 0;
+		margin: 10px auto;
+		border: 1px solid black;
+	}
 
+
+/* -----BUTTONS----- */
 .pure-g [class *= "button-font"] {
 	font-family: 'Quattrocento', serif;
 	font-size: 2.75em;
 }
+
+	.greeter, .meeter {
+		padding: 10px 0;
+		margin: 10px auto;
+		border: 1px solid black;
+	}
+	.pure-button {
+		padding: 20px;
+		border-radius: 25px;
+	}
+
+	button:active {
+		transform: translateY(3px);
+	}
+
+/* -----ABOUT----- */
+.pure-g [class *= "about"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.25em;
+}
+
+	.about {
+		padding: 10px 0;
+		border: 1px solid black;
+		margin: 10px auto;
+	}
+
+	.pure-g [class *= "dev"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.25em;
+	}
+
+	.dev-pic {
+		width: 150px;
+		height: 200px;
+	}
+
+/* -----GREETER PAGE----- */
+.pure-g [class *= "create-event"] {
+	font-family: 'Quattrocento', serif;
+	font-size: 1.5em;
+}
+	.create-event {
+		padding: 10px 0;
+		margin: 10px auto;
+		border: 1px solid black;
+	}
+
+	.greeter-form {
+		margin: auto;
+		max-width: 768px;
+	}
