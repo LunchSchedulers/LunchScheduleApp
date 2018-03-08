@@ -115,10 +115,29 @@ html {
 		margin: 10px auto;
 	}
 
-	header, .explain, .select, .greeter-form, .display-event {
+	header, .explain, .select, .greeter-form {
 		margin: 10px auto;
 		max-width: 768px;
 		background-color: #ffffff;
 		border: 1px solid #000000;
 		border-radius: 25px;
+	}
+
+	.display-event {
+		margin: 10px auto;
+		max-width: 75%;
+		background-color: #ffffff;
+		border: 1px solid #000000;
+		border-radius: 25px;
+	}
+
+	table, th {
+		margin: 10px auto;
+		max-width: 100%;
+		background-color: #ffffff;
+	}
+
+	.pure-g [class *= "event-header"] {
+		font-family: 'Alfa Slab One', serif;
+		font-size: 1.50em;
 	}
