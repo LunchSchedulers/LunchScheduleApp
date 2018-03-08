@@ -3,6 +3,12 @@
 	text-align: center;
 }
 
+/* -----BACKGROUND----- */
+html {
+	background-image: url("../images/food.png");
+	background-attachment: fixed;
+}
+
 /* -----HEADER----- */
 .pure-g [class *= "header"] {
 	font-family: 'Alfa Slab One', cursive;
@@ -29,8 +35,12 @@
 
 	.explain {
 		padding: 10px 0;
-		border: 1px solid black;
-		margin: 10px auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.pure-menu-item {
+		color: #000000;
 	}
 
 /* -----SELECT----- */
@@ -55,11 +65,19 @@
 	.greeter, .meeter {
 		padding: 10px 0;
 		margin: 10px auto;
-		border: 1px solid black;
+		color: #000000;
 	}
+
 	.pure-button {
 		padding: 20px;
 		border-radius: 25px;
+		background-color: #ffffff;
+		color: #000000;
+		border: 1px solid #000000;
+	}
+
+	.greeter-button, .meeter-button {
+		padding: 20px 50px;
 	}
 
 	button:active {
@@ -74,7 +92,6 @@
 
 	.about {
 		padding: 10px 0;
-		border: 1px solid black;
 		margin: 10px auto;
 	}
 
@@ -88,18 +105,20 @@
 		height: 200px;
 	}
 
-/* -----GREETER PAGE----- */
+/* -----GREETER/MEETER PAGE----- */
 .pure-g [class *= "create-event"] {
 	font-family: 'Quattrocento', serif;
 	font-size: 1.5em;
 }
-	.create-event {
+	.create-event, .display-event {
 		padding: 10px 0;
 		margin: 10px auto;
-		border: 1px solid black;
 	}
 
-	.greeter-form {
-		margin: auto;
+	header, .explain, .select, .greeter-form, .display-event {
+		margin: 10px auto;
 		max-width: 768px;
+		background-color: #ffffff;
+		border: 1px solid #000000;
+		border-radius: 25px;
 	}
