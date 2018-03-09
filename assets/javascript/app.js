@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    // FOR INTERFACE: assume object name is theEvent
-
     // Global Variables
     var arrayOfAllEvents = [];
     var arrayOfEventKeys=[];
@@ -29,16 +27,14 @@ $(document).ready(function(){
     }
     var database;
     // Database Helper Functions
-    function pushEventKeyToLocalStorage(eventKey){
+    function pushEventKeyToLocalStorage(eventKey){ // DELETE
         localStorage.setItem("eventkey", exampleEvent.eventKey);
     }
-    function testIfLocalEventExistsInFirebase(){
-        var localEventID = localStorage.getItem("eventKey");
-        if (localEventID != ""){
-            // for each event in firebase, see if localEventID matches
-        }
+    function testIfUserHasActiveEventInFirebase(){ // Needs work - Check to see if user already has an event
+        // Sort firebase by event Date (newest first) filtered for user
+        // If event date >= now then return TRUE
     }
-    function testIfEventIsInProximityWindow(currentLocation, eventLocation, proximityWindowInMiles){
+    function testIfEventIsInProximityWindow(currentLocation, eventLocation, proximityWindowInMiles){ // WORKS
         var distanceBetweenEvents = getDistanceBetweenCoordinatesInMiles(currentLocation.latitude,currentLocation.longitude,eventLocation.latitude,eventLocation.longitude);
         if (distanceBetweenEvents <= proximityWindowInMiles) {
             return true;
@@ -46,19 +42,21 @@ $(document).ready(function(){
             return false;
         }
     }
-    function returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles){
+    function returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles){ // WORKS
         var arrayOfProximateEvents = [];
         for (var i=0; i<arrayOfAllEvents.length; i++){
-
+            var eventLocation = {latitude: arrayOfAllEvents[i].latitudeOfEvent, longitude: arrayOfAllEvents[i].longitudeOfEvent};
+            if (testIfEventIsInProximityWindow(currentLocation, eventLocation,proximityWindowInMiles)){
+                arrayOfProximateEvents.push(arrayOfAllEvents[i]);
+            }
         }
-        
         return arrayOfProximateEvents;
     }
-    function testPushToDatabase(){
+    function testPushToDatabase(){  // DELETE eventually
         var eventToPush = putUserEntryInEventObject();
         database.ref().push(eventToPush);
     }
-    function putUserEntryInEventObject(){
+    function putUserEntryInEventObject(){ //Rewrite to interact with greeter page
         var localEventKey = Math.ceil(Math.random()*$("#lat-input").val());
         var userEvent = {
             greeterName: $("#greeterName-input").val(),
@@ -76,13 +74,11 @@ $(document).ready(function(){
         console.log(userEvent);
         return userEvent;
     }
-    function populateFireBaseWithEventInfo(){
-        // jquery to populate info for event
-
-        // get all exampleEvent element from HTML
-        // push exampleEventObject to firebase
+    function populateFireBaseWithEventInfo(){ // WORKS
+        var eventToPush = putUserEntryInEventObject();
+        database.ref().push(eventToPush);
     }
-    function connectToFirebase(){
+    function connectToFirebase(){ // WORKS
         arrayOfAllEvents=[];
         console.log(arrayOfAllEvents);
         var config = {
@@ -97,7 +93,7 @@ $(document).ready(function(){
         database = firebase.database();
         console.log(arrayOfAllEvents);
     }
-    function snapshotToArray(snapshot) {
+    function snapshotToArray(snapshot) { // DELETE
         var returnArr = [];
     
         snapshot.forEach(function(childSnapshot) {
@@ -109,7 +105,7 @@ $(document).ready(function(){
     
         return returnArr;
     };
-    function getDistanceBetweenCoordinatesInMiles(lat1,lon1,lat2,lon2) {
+    function getDistanceBetweenCoordinatesInMiles(lat1,lon1,lat2,lon2) { // WORKS
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below
         var dLon = deg2rad(lon2-lon1); 
@@ -123,23 +119,23 @@ $(document).ready(function(){
         var distanceInMiles = d * 0.621371;
         return d;
     }
-    function deg2rad(deg) {
+    function deg2rad(deg) { // WORKS
         return deg * (Math.PI/180)
     }
-    function listArrayValues(){
+    function listArrayValues(){ // DELETE - used for testing
         for (var i=0; i<arrayOfAllEvents.length;i++){
             console.log(arrayOfAllEvents[i]);
         }
     }
     // Interface functions
-    function populateTableWithEvents(){
+    function populateTableWithEvents(){ // Need to add interface stuff
         var arrayOfProximateEvents = returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles);
         // jquery stuff to push events into repeating element
     }
-    function clearUserInputFields(){
+    function clearUserInputFields(){ // EMPTY - needs work
         // jquery stuff
     }
-    function getLocation() {
+    function getLocation() { // WORKS
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 currentLocation.latitude = position.coords.latitude;
@@ -151,7 +147,7 @@ $(document).ready(function(){
         }
         
     }
-    $("#click-button").on("click", function() {
+    $("#click-button").on("click", function() { // DELETE - used for testing
         console.log("clicked");
         testPushToDatabase();
     });
@@ -159,7 +155,7 @@ $(document).ready(function(){
     // page load activities
     // getLocation();
     connectToFirebase();
-    database.ref().on("child_added", function(snapshot) {
+    database.ref().on("child_added", function(snapshot) { // WORKS. Main firebase watcher
         var sv = snapshot.val();
         arrayOfAllEvents.push(sv);
         var theKey = snapshot.key;
