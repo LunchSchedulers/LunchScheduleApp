@@ -190,8 +190,8 @@ $(document).ready(function(){
 
     // Weather information
     function updateDescriptionOfWeather(theEvent){
-        var weatherQueryURL = "https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+theEvent.latitudeOfEvent+","+theEvent.longitudeOfEvent;
-        var weatherResponse="";
+        var weatherQueryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+theEvent.latitudeOfEvent+","+theEvent.longitudeOfEvent;
+
 
         $.ajax({
             url: weatherQueryURL,
