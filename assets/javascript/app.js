@@ -26,10 +26,14 @@ $(document).ready(function(){
         longitude:""
     }
     var database;
+
     // Data manipulation and calculations
     function convertStringToUnixTime(theDateAndTimeAsString){ // WORKS
         var convertedDate = moment(theDateAndTimeAsString).format("X");
         return convertedDate;
+    }
+    function convertUnixTimeToUserReadable(unixTimeValue){
+        return moment(unixTimeValue).format("MM/DD/YY hh:mm");
     }
     function doesUserHaveActiveEventInFirebase(greeterName){ // WORKS
         var currentTimeInUnix = convertStringToUnixTime(Date.now());
