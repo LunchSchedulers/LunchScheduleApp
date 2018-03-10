@@ -171,7 +171,7 @@ $(document).ready(function(){
         return arrayToPopulateTableWith;
     }
 
-    var arrayToPopulateDivsWith = returnArrayToPopulateDivs();
+    // var arrayToPopulateDivsWith = returnArrayToPopulateDivs();
 
     function clearUserInputFields(){ // EMPTY - needs work
         // jquery stuff
@@ -184,18 +184,22 @@ $(document).ready(function(){
     $("#proxTest").on("click", function() { // DELETE - used for testing
         console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
     });
+    $("#weatherTest").on("click", function() { // DELETE - used for testing
+        updateDescriptionOfWeather(arrayOfAllEvents[0]);
+    });
 
     // Weather information
-    function returnDescriptionOfWeather(theEvent){
-        var weatherQueryBaseURL = "https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"
+    function updateDescriptionOfWeather(theEvent){
+        var weatherQueryURL = "https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+theEvent.latitudeOfEvent+","+theEvent.longitudeOfEvent;
         var weatherResponse="";
 
         $.ajax({
-            url: weatherQueryBaseURL+theEvent.latitudeOfEvent+theEvent.longitudeOfEvent,
+            url: weatherQueryURL,
             method: "GET"
         }).then(function(response) {
             console.log(response.daily.summary);
-            return response.daily.summary;
+            // $(".align-center display-weather").text(response.daily.summary);
+            $("#weatherHolder").text(response.daily.summary);
         });
     }
 
@@ -212,7 +216,4 @@ $(document).ready(function(){
     }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
-
-    $("#weatherHolder").text(returnDescriptionOfWeather(arrayOfAllEvents[0]));
 });
-console.log("hi Brint");
