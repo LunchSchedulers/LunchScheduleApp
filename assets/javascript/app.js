@@ -57,6 +57,23 @@ $(document).ready(function(){
         }
         return arrayOfProximateEvents;
     }
+    function returnArrayOfEventsAfterTime(targetTime, arrayToInspect){
+        var returnedArray=[];
+        if (targetTime == ""){
+            targetTime = convertStringToUnixTime(Date.now());
+        } else {
+            targetTime = convertStringToUnixTime(targetTime);
+        }
+        if (arrayToInspect==[]){
+            arrayToInspect = arrayOfAllEvents;
+        }
+        for (var i=0;i<arrayToInspect.length; i++){
+            if (arrayToInspect[i].eventEndTime>=targetTime){
+                returnedArray.push(arrayToInspect[i]);
+            }
+        }
+        return returnedArray;
+    }
     function getDistanceBetweenCoordinatesInMiles(lat1,lon1,lat2,lon2) { // WORKS
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below
@@ -144,8 +161,10 @@ $(document).ready(function(){
             clearUserInputFields();
         }
     }
-    function populateTableWithEvents(){ // Need to add interface stuff
+    function returnArrayToPopulateDivs(){ // Need to add interface stuff
         var arrayOfProximateEvents = returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles);
+        var arrayToPopulateTableWith = returnArrayOfEventsAfterTime(Date.now(),arrayOfProximateEvents);
+        return arrayToPopulateTableWith;
         // jquery stuff to push events into repeating element
     }
     function clearUserInputFields(){ // EMPTY - needs work
