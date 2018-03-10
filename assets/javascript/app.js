@@ -108,7 +108,6 @@ $(document).ready(function(){
     function connectToFirebase(){ // WORKS
         // clears local array of events and connects program to firebase
         arrayOfAllEvents=[];
-        console.log(arrayOfAllEvents);
         var config = {
             apiKey: "AIzaSyAboCNAM8LyGsG2dV-fzJBiZu4UVQhxgHk",
             authDomain: "meetupschedule-ab2c2.firebaseapp.com",
@@ -119,7 +118,6 @@ $(document).ready(function(){
         };
         firebase.initializeApp(config);
         database = firebase.database();
-        console.log(arrayOfAllEvents);
     }
     function testPushToDatabase(){  // DELETE eventually
         var eventToPush = putUserEntryInEventObject();
@@ -161,11 +159,10 @@ $(document).ready(function(){
             clearUserInputFields();
         }
     }
-    function returnArrayToPopulateDivs(){ // Need to add interface stuff
+    function returnArrayToPopulateDivs(){ // 
         var arrayOfProximateEvents = returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles);
         var arrayToPopulateTableWith = returnArrayOfEventsAfterTime(Date.now(),arrayOfProximateEvents);
         return arrayToPopulateTableWith;
-        // jquery stuff to push events into repeating element
     }
     function clearUserInputFields(){ // EMPTY - needs work
         // jquery stuff
@@ -179,6 +176,19 @@ $(document).ready(function(){
         console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
     });
 
+    // Weather information
+    function returnDescriptionOfWeather(theEvent){
+        var weatherQueryBaseURL = "https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"
+        var weatherResponse="";
+
+        $.ajax({
+            url: weatherQueryBaseURL+theEvent.latitudeOfEvent+theEvent.longitudeOfEvent,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response.daily.summary);
+            return response.daily.summary;
+        });
+    }
 
     // page load activities
     getLocation();
@@ -194,4 +204,5 @@ $(document).ready(function(){
         console.log("Errors handled: " + errorObject.code);
     });
 
+    $("#weatherHolder").text(returnDescriptionOfWeather(arrayOfAllEvents[0]));
 });
