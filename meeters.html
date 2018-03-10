@@ -71,31 +71,99 @@
 		</div> <!-- explain -->
 
 		<!-- weather -->
-		<div class="pure-u-1 pure-u-md-1 pure-u-lg-1 align-center explain">
-			Check the weather before you decide!
+		<div class="pure-u-1 pure-u-md-1 pure-u-lg-1 explain">
+			<div class="align-center">Check the weather before you decide!</div>
+			<p>
+				<form class="pure-form pure-form-aligned">
+					<fieldset>
 
-			<div class="align-center display-weather"></div>
-		</div> <!-- weather -->
+						<!-- date -->
+						<div class="pure-control-group">
+							<label for="date">Choose Date</label>
+							<input type="date" name="date">
+						</div>
 
-		<!-- event display (dynamically created) -->
-		<div class="pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-1 display-event">
-			<table class="pure-table pure-table-horizontal event-table">
-				<thead>
-					<tr>
-						<th class="event-header">Event Name</th>
-						<th class="event-header">Greeter</th>
-						<th class="event-header">Location</th>
-						<th class="event-header">Address</th>
-						<th class="event-header">Start Time</th>
-						<th class="event-header">End Time</th>
-					</tr>
-				</thead>
+						<!-- start time -->
+						<div class="pure-control-group">
+							<label for="start">Choose Time</label>
+							<select id="start">
+								<option>--:-- --</option>
+								<option>12:00 AM</option>
+								<option>12:30 AM</option>
+								<option>1:00 AM</option>
+								<option>1:30 AM</option>
+								<option>2:00 AM</option>
+								<option>2:30 AM</option>
+								<option>3:00 AM</option>
+								<option>3:30 AM</option>
+								<option>4:00 AM</option>
+								<option>4:30 AM</option>
+								<option>5:00 AM</option>
+								<option>5:30 AM</option>
+								<option>6:00 AM</option>
+								<option>6:30 AM</option>
+								<option>7:00 AM</option>
+								<option>7:30 AM</option>
+								<option>8:00 AM</option>
+								<option>8:30 AM</option>
+								<option>9:00 AM</option>
+								<option>9:30 AM</option>
+								<option>10:00 AM</option>
+								<option>10:30 AM</option>
+								<option>11:00 AM</option>
+								<option>11:30 AM</option>
+								<option>12:00 PM</option>
+								<option>12:30 PM</option>
+								<option>1:00 PM</option>
+								<option>1:30 PM</option>
+								<option>2:00 PM</option>
+								<option>2:30 PM</option>
+								<option>3:00 PM</option>
+								<option>3:30 PM</option>
+								<option>4:00 PM</option>
+								<option>4:30 PM</option>
+								<option>5:00 PM</option>
+								<option>5:30 PM</option>
+								<option>6:00 PM</option>
+								<option>6:30 PM</option>
+								<option>7:00 PM</option>
+								<option>7:30 PM</option>
+								<option>8:00 PM</option>
+								<option>8:30 PM</option>
+								<option>9:00 PM</option>
+								<option>9:30 PM</option>
+								<option>10:00 PM</option>
+								<option>10:30 PM</option>
+								<option>11:00 PM</option>
+								<option>11:30 PM</option>
+							</select>
+						</div>
+					</fieldset>
+				</form>
 
-				<tbody></tbody>
+				<div class="align-center display-weather"></div>
+			</div> <!-- weather -->
 
-			</table>
-		</div> <!-- display-event -->
-	</div> <!-- pure-g -->
 
-</body>
-</html>
+			<!-- event display (dynamically created) -->
+			<div class="pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-1 display-event">
+				<table class="pure-table pure-table-horizontal event-table">
+					<thead>
+						<tr>
+							<th class="event-header">Event Name</th>
+							<th class="event-header">Greeter</th>
+							<th class="event-header">Location</th>
+							<th class="event-header">Address</th>
+							<th class="event-header">Start Time</th>
+							<th class="event-header">End Time</th>
+						</tr>
+					</thead>
+
+					<tbody></tbody>
+
+				</table>
+			</div> <!-- display-event -->
+		</div> <!-- pure-g -->
+
+	</body>
+	</html>
