@@ -39,7 +39,7 @@ html {
 		margin-bottom: 10px;
 	}
 
-	.pure-menu-item {
+	.pure-menu-link {
 		color: #000000;
 	}
 
@@ -115,10 +115,37 @@ html {
 		margin: 10px auto;
 	}
 
-	header, .explain, .select, .greeter-form, .display-event {
+	header, .explain, .select, .greeter-form {
 		margin: 10px auto;
 		max-width: 768px;
 		background-color: #ffffff;
 		border: 1px solid #000000;
 		border-radius: 25px;
+	}
+
+	.display-event {
+		margin: 10px auto;
+		max-width: 100%;
+		background-color: #ffffff;
+		border: 1px solid #000000;
+		border-radius: 25px;
+	}
+
+	table, tr {
+		margin: 10px auto;
+		width: 100%;
+		background-color: #ffffff;
+	}
+
+	.pure-table {
+		border: none;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	.pure-g [class *= "event-header"] {
+		font-family: 'Alfa Slab One', serif;
+		font-size: 1.50em;
 	}
