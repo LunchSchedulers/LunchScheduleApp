@@ -22,3 +22,18 @@
 	// newCell.text(theEvent[i].endTime)
 	// append newCell to newRow
 	// append newRow to tbody
+
+function displayProximateEventsToMeeterPage() {
+	for (var i = 0; i < arrayToPopulateDivsWith.length; i++){
+		var tr = $("<tr>");
+		var td = $("<td>");
+		td.text(arrayToPopulateDivsWith[i].eventName);
+		td.text(arrayToPopulateDivsWith[i].greeterName);
+		td.text(arrayToPopulateDivsWith[i].nameOfEventLocation);
+		td.text(arrayToPopulateDivsWith[i].addressOfEvent);
+		td.text(arrayToPopulateDivsWith[i].eventStartTime);
+		td.text(arrayToPopulateDivsWith[i].eventEndTime);
+		td.appendTo(tr);
+		tr.appendTo("<tbody>");
+	}
+}
