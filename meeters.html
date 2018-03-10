@@ -9,7 +9,7 @@
 	<!-- pure.css -->
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
-	<!-- pure.css responose grids -->
+	<!-- pure.css response grids -->
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 
 	<!-- font awesome for icons -->
@@ -57,7 +57,7 @@
 			
 			<!-- search radius -->
 			<form class="pure-form">
-				<div class="pure-control-group">
+				<fieldset>
 					<label for="search-radius">Search Radius (in miles)</label>
 					<select id="radius">
 						<option>5</option>
@@ -66,13 +66,17 @@
 						<option>20</option>
 						<option>25</option>
 					</select>
-				</div>
+
+					<!-- submit button -->
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="pure-button pure-button-primary" id="search">Search</button>
+				</fieldset>
 			</form>
 		</div> <!-- explain -->
 
 		<!-- weather -->
 		<div class="pure-u-1 explain">
-			<div class="align-center">Check the weather before you decide!</div>
+			<div class="align-center">Check the weather before creating an event!</div>
 			<p>
 				<form class="pure-form pure-form-aligned">
 					<fieldset>
@@ -80,7 +84,7 @@
 						<!-- date -->
 						<div class="pure-control-group">
 							<label for="date">Choose Date</label>
-							<input type="date" name="date" id="meeter-weather-date">
+							<input type="date" name="date" id="greeter-weather-date">
 						</div>
 
 						<!-- start time -->
@@ -137,6 +141,11 @@
 								<option>11:00 PM</option>
 								<option>11:30 PM</option>
 							</select>
+						</div>
+
+						<!-- submit button -->
+						<div class="pure-controls">
+							<button type="submit" class="pure-button pure-button-primary" id="get-weather">Get Weather</button>
 						</div>
 					</fieldset>
 				</form>
