@@ -215,3 +215,4 @@ $(document).ready(function(){
 
     $("#weatherHolder").text(returnDescriptionOfWeather(arrayOfAllEvents[0]));
 });
+console.log("hi Brint");
