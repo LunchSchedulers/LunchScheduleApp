@@ -61,7 +61,7 @@ $(document).ready(function(){
         }
         return arrayOfProximateEvents;
     }
-    function returnArrayOfEventsAfterTime(targetTime, arrayToInspect){
+    function returnArrayOfEventsAfterTime(targetTime, arrayToInspect){ // need to test
         var returnedArray=[];
         if (targetTime == ""){
             targetTime = convertStringToUnixTime(Date.now());
@@ -162,6 +162,7 @@ $(document).ready(function(){
             database.ref().push(eventToPush);
         } else {
             clearUserInputFields();
+            //populate UI div to explain to user
         }
     }
     function returnArrayToPopulateDivs(){ // 
@@ -169,6 +170,9 @@ $(document).ready(function(){
         var arrayToPopulateTableWith = returnArrayOfEventsAfterTime(Date.now(),arrayOfProximateEvents);
         return arrayToPopulateTableWith;
     }
+
+    var arrayToPopulateDivsWith = returnArrayToPopulateDivs();
+
     function clearUserInputFields(){ // EMPTY - needs work
         // jquery stuff
     }
