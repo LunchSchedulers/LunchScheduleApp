@@ -79,6 +79,7 @@ $(document).ready(function(){
         return returnedArray;
     }
     function getDistanceBetweenCoordinatesInMiles(lat1,lon1,lat2,lon2) { // WORKS
+        // url goes here.  taken from ??D?FJK
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below
         var dLon = deg2rad(lon2-lon1); 
