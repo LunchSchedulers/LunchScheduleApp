@@ -140,14 +140,21 @@ $(document).ready(function(){
     // pulls in user information and converts info to appropriate formats
         var localEventKey = Math.ceil(Math.random()*$("#lat-input").val());
         var userEvent = {
-            greeterName: $("#greeterName-input").val(),
-            eventName: $("#eventName-input").val(),
+            // direct user inputs
+            greeterName: $("#name").val(),
+            eventName: $("#event").val(),
+            eventStartTime: $("#greeter-date").val() + $("#start").val(),
+            eventEndTime: $("#greeter-date").val() + $("#end").val(),
+
+            // info received from google location search
+            // need to integrate with places.js
             latitudeOfEvent: parseInt($("#lat-input").val()),
             longitudeOfEvent: parseInt($("#long-input").val()),
             addressOfEvent: $("#eventAddress-input").val(),
             nameOfEventLocation: $("#locationName-input").val(),
-            eventStartTime: parseInt(convertStringToUnixTime($("#startTime-input").val())),
-            eventEndTime: parseInt(convertStringToUnixTime($("#endTime-input").val())),
+
+            
+            // stuff we probably don't need
             eventAdded:parseInt(convertStringToUnixTime(Date.now())),
             eventKey:localEventKey,
             eventExpiryTime:parseInt($("#endTime-input").val())+(30*60)
@@ -175,7 +182,7 @@ $(document).ready(function(){
     function displayProximateEventsToMeeterPage() {
         var userSelectedProximity = $("#radius").val();
         console.log(userSelectedProximity);
-        var arrayToPopulateDivsWith = returnArrayOfAllEventsWithinProximityWindow(userSelectedProximity);
+        var arrayToPopulateDivsWith = returnArrayOfAllEventsWithinProximityWindow(currentLocation,userSelectedProximity);
         for (var i = 0; i < arrayToPopulateDivsWith.length; i++){
             var tr = $("<tr>");
             var td = $("<td>");
@@ -190,21 +197,9 @@ $(document).ready(function(){
         }
     }
 
-    
-    $("#click-button").on("click", function() { // DELETE - used for testing
-        console.log("clicked");
-        testPushToDatabase();
-    });
-    $("#proxTest").on("click", function() { // DELETE - used for testing
-        console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
-    });
-    $("#weatherTest").on("click", function() { // DELETE - used for testing
-        updateDescriptionOfWeather(arrayOfAllEvents[0]);
-    });
-
     // Weather information
-    function updateDescriptionOfWeather(theEvent){
-        var weatherQueryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+theEvent.latitudeOfEvent+","+theEvent.longitudeOfEvent;
+    function updateDescriptionOfWeather(){
+        var weatherQueryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+currentLocation.latitude+","+currentLocation.longitude;
 
 
         $.ajax({
@@ -212,10 +207,29 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(response) {
             console.log(response.daily.summary);
-            // $(".align-center display-weather").text(response.daily.summary);
-            $("#weatherHolder").text(response.daily.summary);
+            $(".align-center display-weather").html(response.daily.summary);
         });
     }
+
+    // Click listeners
+    $("#click-button").on("click", function() { // DELETE - used for testing
+        console.log("clicked");
+        testPushToDatabase();
+    });
+    $("#proxTest").on("click", function() { // DELETE - used for testing
+        console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
+    });
+    $("#get-weather").on("click", function() { // DELETE - used for testing
+        event.preventDefault();
+        updateDescriptionOfWeather();
+    });
+    $("#search").on("click", function() { // proximity search
+        event.preventDefault();
+        console.log("prox search clicked:");
+        console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
+        displayProximateEventsToMeeterPage();
+    });
+    
 
     // page load activities
     getLocation();
