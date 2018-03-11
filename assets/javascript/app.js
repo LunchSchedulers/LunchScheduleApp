@@ -193,7 +193,7 @@ $(document).ready(function(){
             td.text(arrayToPopulateDivsWith[i].eventStartTime);
             td.text(arrayToPopulateDivsWith[i].eventEndTime);
             td.appendTo(tr);
-            tr.appendTo("<tbody>");
+            tr.appendTo("#appendTableInfoHere");
         }
     }
 
@@ -207,7 +207,7 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(response) {
             console.log(response.daily.summary);
-            $(".align-center display-weather").html(response.daily.summary);
+            $("#testWeather").html(response.daily.summary);
         });
     }
 
