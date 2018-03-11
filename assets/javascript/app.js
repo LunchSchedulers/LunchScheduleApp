@@ -185,14 +185,30 @@ $(document).ready(function(){
         var arrayToPopulateDivsWith = returnArrayOfAllEventsWithinProximityWindow(currentLocation,userSelectedProximity);
         for (var i = 0; i < arrayToPopulateDivsWith.length; i++){
             var tr = $("<tr>");
-            var td = $("<td>");
-            td.text(arrayToPopulateDivsWith[i].eventName);
-            td.text(arrayToPopulateDivsWith[i].greeterName);
-            td.text(arrayToPopulateDivsWith[i].nameOfEventLocation);
-            td.text(arrayToPopulateDivsWith[i].addressOfEvent);
-            td.text(arrayToPopulateDivsWith[i].eventStartTime);
-            td.text(arrayToPopulateDivsWith[i].eventEndTime);
-            td.appendTo(tr);
+
+            // create td's for data
+            var td1 = $("<td>");
+            var td2 = $("<td>");
+            var td3 = $("<td>");
+            var td4 = $("<td>");
+            var td5 = $("<td>");
+            var td6 = $("<td>");
+
+            td1.text(arrayToPopulateDivsWith[i].eventName);
+            td2.text(arrayToPopulateDivsWith[i].greeterName);
+            td3.text(arrayToPopulateDivsWith[i].nameOfEventLocation);
+            td4.text(arrayToPopulateDivsWith[i].addressOfEvent);
+            td5.text(arrayToPopulateDivsWith[i].eventStartTime);
+            td6.text(arrayToPopulateDivsWith[i].eventEndTime);
+
+            // append td's to tr
+            td1.appendTo(tr);
+            td2.appendTo(tr);
+            td3.appendTo(tr);
+            td4.appendTo(tr);
+            td5.appendTo(tr);
+            td6.appendTo(tr);
+
             tr.appendTo("#appendTableInfoHere");
         }
     }
