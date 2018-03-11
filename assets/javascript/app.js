@@ -33,7 +33,8 @@ $(document).ready(function(){
         return convertedDate;
     }
     function convertUnixTimeToUserReadable(unixTimeValue){
-        return moment(unixTimeValue).format("MM/DD/YY hh:mm");
+        var dateString = moment.unix(unixTimeValue).format("MM/DD/YYYY hh:mm");
+        return dateString
     }
     function doesUserHaveActiveEventInFirebase(greeterName){ // WORKS
         var currentTimeInUnix = convertStringToUnixTime(Date.now());
@@ -198,8 +199,8 @@ $(document).ready(function(){
             td2.text(arrayToPopulateDivsWith[i].greeterName);
             td3.text(arrayToPopulateDivsWith[i].nameOfEventLocation);
             td4.text(arrayToPopulateDivsWith[i].addressOfEvent);
-            td5.text(arrayToPopulateDivsWith[i].eventStartTime);
-            td6.text(arrayToPopulateDivsWith[i].eventEndTime);
+            td5.text(convertUnixTimeToUserReadable(arrayToPopulateDivsWith[i].eventStartTime));
+            td6.text(convertUnixTimeToUserReadable(arrayToPopulateDivsWith[i].eventEndTime));
 
             // append td's to tr
             td1.appendTo(tr);
