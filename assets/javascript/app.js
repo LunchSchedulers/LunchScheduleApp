@@ -134,7 +134,6 @@ $(document).ready(function(){
         database.ref().push(eventToPush);
         clearUserInputFields();
     }
-
  
     // Interface functions
     function putUserEntryInEventObject(){ //Rewrite to interact with greeter page
@@ -165,17 +164,32 @@ $(document).ready(function(){
             //populate UI div to explain to user
         }
     }
-    function returnArrayToPopulateDivs(){ // 
+    function returnArrayToPopulateDivs(proximityWindowInMiles){ // 
         var arrayOfProximateEvents = returnArrayOfAllEventsWithinProximityWindow(currentLocation, proximityWindowInMiles);
         var arrayToPopulateTableWith = returnArrayOfEventsAfterTime(Date.now(),arrayOfProximateEvents);
         return arrayToPopulateTableWith;
     }
-
-    // var arrayToPopulateDivsWith = returnArrayToPopulateDivs();
-
     function clearUserInputFields(){ // EMPTY - needs work
         // jquery stuff
     }
+    function displayProximateEventsToMeeterPage() {
+        var userSelectedProximity = $("#radius").val();
+        console.log(userSelectedProximity);
+        var arrayToPopulateDivsWith = returnArrayOfAllEventsWithinProximityWindow(userSelectedProximity);
+        for (var i = 0; i < arrayToPopulateDivsWith.length; i++){
+            var tr = $("<tr>");
+            var td = $("<td>");
+            td.text(arrayToPopulateDivsWith[i].eventName);
+            td.text(arrayToPopulateDivsWith[i].greeterName);
+            td.text(arrayToPopulateDivsWith[i].nameOfEventLocation);
+            td.text(arrayToPopulateDivsWith[i].addressOfEvent);
+            td.text(arrayToPopulateDivsWith[i].eventStartTime);
+            td.text(arrayToPopulateDivsWith[i].eventEndTime);
+            td.appendTo(tr);
+            tr.appendTo("<tbody>");
+        }
+    }
+
     
     $("#click-button").on("click", function() { // DELETE - used for testing
         console.log("clicked");
