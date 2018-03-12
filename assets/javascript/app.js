@@ -108,7 +108,6 @@ $(document).ready(function(){
         } else { 
             console.log("Geolocation is not supported by this browser.");
         }
-        
     }
 
     // Database Functions
@@ -136,7 +135,7 @@ $(document).ready(function(){
         database.ref().push(eventToPush);
         clearUserInputFields();
     }
- 
+
     // Interface functions
     function putUserEntryInEventObject(){ //Rewrite to interact with greeter page
     // pulls in user information and converts info to appropriate formats
@@ -230,7 +229,7 @@ $(document).ready(function(){
         }).then(function(response) {
             console.log(response);
             console.log(response.currently.apparentTemperature + " " + response.currently.summary);
-            $("#testWeather").html(response.currently.apparentTemperature + "&deg;F " + response.currently.summary);
+            $("#testWeather").html(Math.floor(response.currently.apparentTemperature) + "&deg;F " + response.currently.summary);
         });
     }
 
