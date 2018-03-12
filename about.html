@@ -8,7 +8,7 @@
 	<!-- pure.css -->
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
-	<!-- pure.css responsive grids -->
+	<!-- pure.css responose grids -->
 	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 
 	<!-- font awesome for icons -->
@@ -25,13 +25,13 @@
 <body>
 
 	<!-- pure grid -->
-	<div class="pure-g align-center">
+	<div class="pure-g">
 
 		<!-- header -->
-		<header class="pure-u-1 align-center header">About</header>
+		<header class="pure-u-1 pure-u-md-1 align-center header">About</header>
 
 		<!-- Menu -->
-		<div class="pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-1 align-center menu">
+		<div class="pure-u-1 pure-u-md-1 pure-u-lg-1 align-center menu">
 			<div class="pure-menu pure-menu-horizontal">
 				<ul class="pure-menu-list">
 					<li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Go Back</a></li>
@@ -39,41 +39,59 @@
 			</div>
 		</div> <!-- menu -->
 
-		<!-- project explanation -->
+		<!-- app explanation -->
 		<div class="pure-u-1 align-center about">
 			Meet Me There is a lightweight social application.
-			<p>There's no account to create, and the events delete from the database minutes after the event is over.</p>
-			<p>Simply search for an event near you, and go meet new people.</p>
-			<p>This application was a collaborative effort for the purpose of a project for UNC Chapel Hill's Coding Bootcamp.
-
+			<p>There's no account to create, and the events are removed from the database soon after ending.</p>
+			<p>Create or search for an event near you, and go meet new people.</p>
+			<p>This app is a collaborative effort for the purpose of a project for UNC Chapel Hill's Coding Bootcamp.</p>
 		</div> <!-- explain -->
 
-		<!-- select -->
+		<!-- more -->
+		<div class="pure-u-1 pure-u-md-1 align-center select">More?</div>
+
+		<!-- future functionality -->
+		<div class="pure-u-1 align-center about">
+			In all things, there's always room for improvement, and this app is no exception.
+			<p>The developers of this project have ideas for more functionality and fun, but due to time constraints and the lightning-fast pace of the Coding Bootcamp, the future plans for this app are shelved for the time being.</p>
+			<p>Here are some features that we would like to implement:</p>
+			<ol>
+				<li>RSVP button with headcount for each event.</li>
+				<li>Map display of the event location upon a button click.</li>
+				<li>Event-time fluidity across time zones.</li>
+				<li>Ability for the Greeter to upload a picture.</li>
+				<li>When mobile, allow the Greeter to take a selfie as opposed to uploading the photo.</li>
+				<li>A real database.</li>
+			</ol>
+		</div> <!-- explain -->
+
+		<!-- dev -->
 		<div class="pure-u-1 pure-u-md-1 align-center dev-header">Developers</div>
 
-		<!-- developers -->
-		<div class="pure-u-1 pure-u-md-1-4 align-center">
-			<img src="assets/images/greyarnold.jpg" al="Grey Arnold" class="dev-pic" >
-			<br>
-			Grey Arnold
-		</div>
-		<div class="pure-u-1 pure-u-md-1-4 align-center">
-			<img src="assets/images/greyarnold.jpg" al="Grey Arnold" class="dev-pic" >
-			<br>
-			Grey Arnold
-		</div>
-		<div class="pure-u-1 pure-u-md-1-4 align-center">
-			<img src="assets/images/greyarnold.jpg" al="Grey Arnold" class="dev-pic" >
-			<br>
-			Grey Arnold
-		</div>
-		<div class="pure-u-1 pure-u-md-1-4 align-center">
-			<img src="assets/images/greyarnold.jpg" al="Grey Arnold" class="dev-pic" >
+		<!-- dev pics -->
+		<div class="pure-u-1 pure-u-md-1-6 align-center dev-pic">
+			<img src="assets/images/greyarnold.jpg" alt="Grey Arnold" class="pure-img align-center">
 			<br>
 			Grey Arnold
 		</div>
 
+		<div class="pure-u-1 pure-u-md-1-6 align-center dev-pic">
+			<img src="http://lorempixel.com/400/400/" alt="Grey Arnold" class="pure-img">
+			<br>
+			Brint Hansen
+		</div>
 
+		<div class="pure-u-1 pure-u-md-1-6 align-center dev-pic">
+			<img src="assets/images/gradyknight.png" alt="Grady Knight" class="pure-img">
+			<br>
+			Grady Knight
+		</div>
+
+		<div class="pure-u-1 pure-u-md-1-6 align-center dev-pic">
+			<img src="assets/images/ashleymoore.jpg" alt="Ashley Moore" class="pure-img">
+			<br>
+			Ashley Moore
+		</div>
 	</div> <!-- pure-g -->
 </body>
 </html>
