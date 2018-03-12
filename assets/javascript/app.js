@@ -33,6 +33,7 @@ $(document).ready(function(){
         return convertedDate;
     }
     function convertUnixTimeToUserReadable(unixTimeValue){
+        // solution taken from https://stackoverflow.com/questions/20943089/how-to-convert-unix-timestamp-to-calendar-date-moment-js
         var dateString = moment.unix(unixTimeValue).format("MM/DD/YYYY hh:mm");
         return dateString
     }
@@ -80,7 +81,7 @@ $(document).ready(function(){
         return returnedArray;
     }
     function getDistanceBetweenCoordinatesInMiles(lat1,lon1,lat2,lon2) { // WORKS
-        // url goes here.  taken from ??D?FJK
+        // https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates-shows-wrong
         var R = 6371; // Radius of the earth in km
         var dLat = deg2rad(lat2-lat1);  // deg2rad below
         var dLon = deg2rad(lon2-lon1); 
@@ -216,15 +217,20 @@ $(document).ready(function(){
 
     // Weather information
     function updateDescriptionOfWeather(){
-        var weatherQueryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+currentLocation.latitude+","+currentLocation.longitude;
-
+        var userDate = $("#greeter-weather-date").val();
+        var userTime = $("#start").val();
+        var userDateAndTime = userDate+" "+userTime;
+        var userDateAndTimeInUnix = convertStringToUnixTime(userDateAndTime);
+        var weatherQueryURL = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/4d7a5f366d026dfd52097e2d1c9481f4/"+currentLocation.latitude+","+currentLocation.longitude+","+userDateAndTimeInUnix;
+            // https://cors-anywhere.herokuapp.com/
 
         $.ajax({
             url: weatherQueryURL,
             method: "GET"
         }).then(function(response) {
-            console.log(response.daily.summary);
-            $("#testWeather").html(response.daily.summary);
+            console.log(response);
+            console.log(response.currently.apparentTemperature + " " + response.currently.summary);
+            $("#testWeather").html(response.currently.apparentTemperature + "&deg;F " + response.currently.summary);
         });
     }
 
