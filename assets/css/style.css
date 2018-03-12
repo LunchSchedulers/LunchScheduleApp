@@ -161,6 +161,11 @@
  	font-size: 1.50em;
  }
 
+ .pure-g [class *= "tbody"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.25em;
+ }
+
  /* -----ABOUT----- */
 .pure-g [class *= "dev-header"] {
  	font-family: 'Alfa Slab One', serif;
