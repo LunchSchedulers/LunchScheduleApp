@@ -29,9 +29,14 @@
 	
 	<!-- custom javascript -->
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<script type="text/javascript" src="assets/javascript/places.js"></script>
 
 	<!-- firebase 3.0 -->
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+	<!-- google places api -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2y1BEz3mjyiwvQlHu6oVvv7nNVnEWscM&libraries=places&callback=initAutocomplete"
+	async defer></script>
 
 </head>
 
@@ -63,235 +68,237 @@
 		<div class="pure-u-1 weather">
 			<div class="align-center">Check the weather before creating an event!</div>
 			<p>
-			<form class="pure-form pure-form-aligned">
-				<fieldset>
+				<form class="pure-form pure-form-aligned">
+					<fieldset>
 
-					<!-- date -->
-					<div class="pure-control-group">
-						<label for="date">Choose Date</label>
-						<input type="date" name="date" id="greeter-weather-date">
-					</div>
+						<!-- date -->
+						<div class="pure-control-group">
+							<label for="date">Choose Date</label>
+							<input type="date" name="date" id="greeter-weather-date">
+						</div>
 
-					<!-- start time -->
-					<div class="pure-control-group">
-						<label for="start">Choose Time</label>
-						<select id="start">
-							<option>--:-- --</option>
-							<option>12:00 AM</option>
-							<option>12:30 AM</option>
-							<option>1:00 AM</option>
-							<option>1:30 AM</option>
-							<option>2:00 AM</option>
-							<option>2:30 AM</option>
-							<option>3:00 AM</option>
-							<option>3:30 AM</option>
-							<option>4:00 AM</option>
-							<option>4:30 AM</option>
-							<option>5:00 AM</option>
-							<option>5:30 AM</option>
-							<option>6:00 AM</option>
-							<option>6:30 AM</option>
-							<option>7:00 AM</option>
-							<option>7:30 AM</option>
-							<option>8:00 AM</option>
-							<option>8:30 AM</option>
-							<option>9:00 AM</option>
-							<option>9:30 AM</option>
-							<option>10:00 AM</option>
-							<option>10:30 AM</option>
-							<option>11:00 AM</option>
-							<option>11:30 AM</option>
-							<option>12:00 PM</option>
-							<option>12:30 PM</option>
-							<option>1:00 PM</option>
-							<option>1:30 PM</option>
-							<option>2:00 PM</option>
-							<option>2:30 PM</option>
-							<option>3:00 PM</option>
-							<option>3:30 PM</option>
-							<option>4:00 PM</option>
-							<option>4:30 PM</option>
-							<option>5:00 PM</option>
-							<option>5:30 PM</option>
-							<option>6:00 PM</option>
-							<option>6:30 PM</option>
-							<option>7:00 PM</option>
-							<option>7:30 PM</option>
-							<option>8:00 PM</option>
-							<option>8:30 PM</option>
-							<option>9:00 PM</option>
-							<option>9:30 PM</option>
-							<option>10:00 PM</option>
-							<option>10:30 PM</option>
-							<option>11:00 PM</option>
-							<option>11:30 PM</option>
-						</select>
-					</div>
+						<!-- start time -->
+						<div class="pure-control-group">
+							<label for="start">Choose Time</label>
+							<select id="start">
+								<option>--:-- --</option>
+								<option>12:00 AM</option>
+								<option>12:30 AM</option>
+								<option>1:00 AM</option>
+								<option>1:30 AM</option>
+								<option>2:00 AM</option>
+								<option>2:30 AM</option>
+								<option>3:00 AM</option>
+								<option>3:30 AM</option>
+								<option>4:00 AM</option>
+								<option>4:30 AM</option>
+								<option>5:00 AM</option>
+								<option>5:30 AM</option>
+								<option>6:00 AM</option>
+								<option>6:30 AM</option>
+								<option>7:00 AM</option>
+								<option>7:30 AM</option>
+								<option>8:00 AM</option>
+								<option>8:30 AM</option>
+								<option>9:00 AM</option>
+								<option>9:30 AM</option>
+								<option>10:00 AM</option>
+								<option>10:30 AM</option>
+								<option>11:00 AM</option>
+								<option>11:30 AM</option>
+								<option>12:00 PM</option>
+								<option>12:30 PM</option>
+								<option>1:00 PM</option>
+								<option>1:30 PM</option>
+								<option>2:00 PM</option>
+								<option>2:30 PM</option>
+								<option>3:00 PM</option>
+								<option>3:30 PM</option>
+								<option>4:00 PM</option>
+								<option>4:30 PM</option>
+								<option>5:00 PM</option>
+								<option>5:30 PM</option>
+								<option>6:00 PM</option>
+								<option>6:30 PM</option>
+								<option>7:00 PM</option>
+								<option>7:30 PM</option>
+								<option>8:00 PM</option>
+								<option>8:30 PM</option>
+								<option>9:00 PM</option>
+								<option>9:30 PM</option>
+								<option>10:00 PM</option>
+								<option>10:30 PM</option>
+								<option>11:00 PM</option>
+								<option>11:30 PM</option>
+							</select>
+						</div>
 
-					<!-- submit button -->
-					<div class="pure-controls">
-						<button type="submit" class="pure-button pure-button-primary" id="get-weather">Get Weather</button>
-					</div>
-				</fieldset>
-			</form>
+						<!-- submit button -->
+						<div class="pure-controls">
+							<button type="submit" class="pure-button pure-button-primary" id="get-weather">Get Weather</button>
+						</div>
+					</fieldset>
+				</form>
 
-			<div class="align-center display-weather" id="testWeather"></div>
-		</div> <!-- weather -->
+				<div class="align-center display-weather" id="testWeather"></div>
+			</div> <!-- weather -->
 
-		<!-- event creation (forms) -->
-		<div class="pure-u-1 create-event">
+			<div id="map"></div>
 
-			<form class="pure-form pure-form-aligned greeter-form">
-				<fieldset>
-					<!-- greeter name -->
-					<div class="pure-control-group">
-						<label for="name">Greeter Name</label>
-						<input id="name" type="text">
-					</div>
+			<!-- event creation (forms) -->
+			<div class="pure-u-1 create-event">
 
-					<!-- event name -->
-					<div class="pure-control-group">
-						<label for="event">Event Name</label>
-						<input id="event" type="text">
-					</div>
+				<form class="pure-form pure-form-aligned greeter-form">
+					<fieldset>
+						<!-- greeter name -->
+						<div class="pure-control-group">
+							<label for="name">Greeter Name</label>
+							<input id="name" type="text">
+						</div>
 
-					<!-- event location -->
-					<div class="pure-control-group">
-						<label for="location">Location</label>
-						<input id="location" type="text">
-					</div>
+						<!-- event name -->
+						<div class="pure-control-group">
+							<label for="event">Event Name</label>
+							<input id="event" type="text">
+						</div>
 
-					<!-- date -->
-					<div class="pure-control-group">
-						<label for="date">Event Date</label>
-						<input type="date" name="date" id="greeter-date">
-					</div>
+						<!-- event location -->
+						<div class="pure-control-group">
+							<label for="location">Location</label>
+							<input id="pac-input" class="controls" type="text" placeholder="">
+						</div>
 
-					<!-- start time -->
-					<div class="pure-control-group">
-						<label for="start">Start Time</label>
-						<select id="start">
-							<option>--:-- --</option>
-							<option>12:00 AM</option>
-							<option>12:30 AM</option>
-							<option>1:00 AM</option>
-							<option>1:30 AM</option>
-							<option>2:00 AM</option>
-							<option>2:30 AM</option>
-							<option>3:00 AM</option>
-							<option>3:30 AM</option>
-							<option>4:00 AM</option>
-							<option>4:30 AM</option>
-							<option>5:00 AM</option>
-							<option>5:30 AM</option>
-							<option>6:00 AM</option>
-							<option>6:30 AM</option>
-							<option>7:00 AM</option>
-							<option>7:30 AM</option>
-							<option>8:00 AM</option>
-							<option>8:30 AM</option>
-							<option>9:00 AM</option>
-							<option>9:30 AM</option>
-							<option>10:00 AM</option>
-							<option>10:30 AM</option>
-							<option>11:00 AM</option>
-							<option>11:30 AM</option>
-							<option>12:00 PM</option>
-							<option>12:30 PM</option>
-							<option>1:00 PM</option>
-							<option>1:30 PM</option>
-							<option>2:00 PM</option>
-							<option>2:30 PM</option>
-							<option>3:00 PM</option>
-							<option>3:30 PM</option>
-							<option>4:00 PM</option>
-							<option>4:30 PM</option>
-							<option>5:00 PM</option>
-							<option>5:30 PM</option>
-							<option>6:00 PM</option>
-							<option>6:30 PM</option>
-							<option>7:00 PM</option>
-							<option>7:30 PM</option>
-							<option>8:00 PM</option>
-							<option>8:30 PM</option>
-							<option>9:00 PM</option>
-							<option>9:30 PM</option>
-							<option>10:00 PM</option>
-							<option>10:30 PM</option>
-							<option>11:00 PM</option>
-							<option>11:30 PM</option>
-						</select>
-					</div>
+						<!-- date -->
+						<div class="pure-control-group">
+							<label for="date">Event Date</label>
+							<input type="date" name="date" id="greeter-date">
+						</div>
 
-					<!-- end time -->
-					<div class="pure-control-group">
-						<label for="end">End Time</label>
-						<select id="end">
-							<option>--:-- --</option>
-							<option>12:00 AM</option>
-							<option>12:30 AM</option>
-							<option>1:00 AM</option>
-							<option>1:30 AM</option>
-							<option>2:00 AM</option>
-							<option>2:30 AM</option>
-							<option>3:00 AM</option>
-							<option>3:30 AM</option>
-							<option>4:00 AM</option>
-							<option>4:30 AM</option>
-							<option>5:00 AM</option>
-							<option>5:30 AM</option>
-							<option>6:00 AM</option>
-							<option>6:30 AM</option>
-							<option>7:00 AM</option>
-							<option>7:30 AM</option>
-							<option>8:00 AM</option>
-							<option>8:30 AM</option>
-							<option>9:00 AM</option>
-							<option>9:30 AM</option>
-							<option>10:00 AM</option>
-							<option>10:30 AM</option>
-							<option>11:00 AM</option>
-							<option>11:30 AM</option>
-							<option>12:00 PM</option>
-							<option>12:30 PM</option>
-							<option>1:00 PM</option>
-							<option>1:30 PM</option>
-							<option>2:00 PM</option>
-							<option>2:30 PM</option>
-							<option>3:00 PM</option>
-							<option>3:30 PM</option>
-							<option>4:00 PM</option>
-							<option>4:30 PM</option>
-							<option>5:00 PM</option>
-							<option>5:30 PM</option>
-							<option>6:00 PM</option>
-							<option>6:30 PM</option>
-							<option>7:00 PM</option>
-							<option>7:30 PM</option>
-							<option>8:00 PM</option>
-							<option>8:30 PM</option>
-							<option>9:00 PM</option>
-							<option>9:30 PM</option>
-							<option>10:00 PM</option>
-							<option>10:30 PM</option>
-							<option>11:00 PM</option>
-							<option>11:30 PM</option>
-						</select>
-					</div>
+						<!-- start time -->
+						<div class="pure-control-group">
+							<label for="start">Start Time</label>
+							<select id="start">
+								<option>--:-- --</option>
+								<option>12:00 AM</option>
+								<option>12:30 AM</option>
+								<option>1:00 AM</option>
+								<option>1:30 AM</option>
+								<option>2:00 AM</option>
+								<option>2:30 AM</option>
+								<option>3:00 AM</option>
+								<option>3:30 AM</option>
+								<option>4:00 AM</option>
+								<option>4:30 AM</option>
+								<option>5:00 AM</option>
+								<option>5:30 AM</option>
+								<option>6:00 AM</option>
+								<option>6:30 AM</option>
+								<option>7:00 AM</option>
+								<option>7:30 AM</option>
+								<option>8:00 AM</option>
+								<option>8:30 AM</option>
+								<option>9:00 AM</option>
+								<option>9:30 AM</option>
+								<option>10:00 AM</option>
+								<option>10:30 AM</option>
+								<option>11:00 AM</option>
+								<option>11:30 AM</option>
+								<option>12:00 PM</option>
+								<option>12:30 PM</option>
+								<option>1:00 PM</option>
+								<option>1:30 PM</option>
+								<option>2:00 PM</option>
+								<option>2:30 PM</option>
+								<option>3:00 PM</option>
+								<option>3:30 PM</option>
+								<option>4:00 PM</option>
+								<option>4:30 PM</option>
+								<option>5:00 PM</option>
+								<option>5:30 PM</option>
+								<option>6:00 PM</option>
+								<option>6:30 PM</option>
+								<option>7:00 PM</option>
+								<option>7:30 PM</option>
+								<option>8:00 PM</option>
+								<option>8:30 PM</option>
+								<option>9:00 PM</option>
+								<option>9:30 PM</option>
+								<option>10:00 PM</option>
+								<option>10:30 PM</option>
+								<option>11:00 PM</option>
+								<option>11:30 PM</option>
+							</select>
+						</div>
 
-					<!-- submit button -->
-					<div class="pure-controls">
-						<button type="submit" class="pure-button pure-button-primary" id="submit">Create Event</button>
-					</div>
-				</fieldset>
+						<!-- end time -->
+						<div class="pure-control-group">
+							<label for="end">End Time</label>
+							<select id="end">
+								<option>--:-- --</option>
+								<option>12:00 AM</option>
+								<option>12:30 AM</option>
+								<option>1:00 AM</option>
+								<option>1:30 AM</option>
+								<option>2:00 AM</option>
+								<option>2:30 AM</option>
+								<option>3:00 AM</option>
+								<option>3:30 AM</option>
+								<option>4:00 AM</option>
+								<option>4:30 AM</option>
+								<option>5:00 AM</option>
+								<option>5:30 AM</option>
+								<option>6:00 AM</option>
+								<option>6:30 AM</option>
+								<option>7:00 AM</option>
+								<option>7:30 AM</option>
+								<option>8:00 AM</option>
+								<option>8:30 AM</option>
+								<option>9:00 AM</option>
+								<option>9:30 AM</option>
+								<option>10:00 AM</option>
+								<option>10:30 AM</option>
+								<option>11:00 AM</option>
+								<option>11:30 AM</option>
+								<option>12:00 PM</option>
+								<option>12:30 PM</option>
+								<option>1:00 PM</option>
+								<option>1:30 PM</option>
+								<option>2:00 PM</option>
+								<option>2:30 PM</option>
+								<option>3:00 PM</option>
+								<option>3:30 PM</option>
+								<option>4:00 PM</option>
+								<option>4:30 PM</option>
+								<option>5:00 PM</option>
+								<option>5:30 PM</option>
+								<option>6:00 PM</option>
+								<option>6:30 PM</option>
+								<option>7:00 PM</option>
+								<option>7:30 PM</option>
+								<option>8:00 PM</option>
+								<option>8:30 PM</option>
+								<option>9:00 PM</option>
+								<option>9:30 PM</option>
+								<option>10:00 PM</option>
+								<option>10:30 PM</option>
+								<option>11:00 PM</option>
+								<option>11:30 PM</option>
+							</select>
+						</div>
 
-				<div class="align-center" id="error-message"></div>
-			</form>
+						<!-- submit button -->
+						<div class="pure-controls">
+							<button type="submit" class="pure-button pure-button-primary" id="submit">Create Event</button>
+						</div>
+					</fieldset>
+
+					<div class="align-center" id="error-message"></div>
+				</form>
 
 
 
-		</div> <!-- create-event -->
-	</div> <!-- pure-g -->
+			</div> <!-- create-event -->
+		</div> <!-- pure-g -->
 
-</body>
-</html>
+	</body>
+	</html>
