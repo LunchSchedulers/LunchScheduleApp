@@ -1,175 +1,200 @@
  /* -----ALIGNMENT----- */
-.align-center {
-	text-align: center;
-}
+ .align-center {
+ 	text-align: center;
+ }
 
-/* -----BACKGROUND----- */
-html {
-	background-image: url("../images/food.png");
-	background-attachment: fixed;
-}
+ .pure-g {
+ 	margin-bottom: 20px;
+ }
 
-/* -----HEADER----- */
-.pure-g [class *= "header"] {
-	font-family: 'Alfa Slab One', cursive;
-	font-size: 4.5em;
-}
+ /* -----BACKGROUND----- */
+ html {
+ 	background-image: url("../images/food.png");
+ 	background-attachment: fixed;
+ }
 
-	header {
-		padding: 10px 0;
-		border: 1px solid black;
-		margin-bottom: 10px;
-	}
+ /* -----HEADER----- */
+ .pure-g [class *= "header"] {
+ 	font-family: 'Alfa Slab One', cursive;
+ 	font-size: 4.5em;
+ }
 
-/* -----MENU----- */
-.pure-g [class *= "menu"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.05em;
-}
+ header {
+ 	padding: 10px 0;
+ 	border: 1px solid black;
+ 	margin-bottom: 10px;
+ }
 
-/* -----EXPLANATION----- */
-.pure-g [class *= "explain"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.5em;
-}
+ /* -----MENU----- */
+ .pure-g [class *= "menu"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.05em;
+ }
+ .pure-menu-link {
+ 	color: #000000;
+ }
 
-	.explain {
-		padding: 10px 0;
-		margin: 10px 0;
-	}
+ .menu {
+ 	width: 100%;
+ }
 
-	.pure-menu-link {
-		color: #000000;
-	}
+ /* -----EXPLANATION----- */
+ .pure-g [class *= "explain"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.5em;
+ }
 
-/* -----WEATHER----- */
-.pure-g [class *= "weather"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.5em;
-}
+ .explain {
+ 	padding: 10px 0;
+ 	margin: 10px 0;
+ }
 
-	.weather {
-		padding: 10px 0;
-		margin: 10px 0;
-	}
+ /* -----WEATHER----- */
+ .pure-g [class *= "weather"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.5em;
+ }
 
-/* -----SELECT----- */
-.pure-g [class *= "select"] {
-	font-family: 'Alfa Slab One', serif;
-	font-size: 3.0em;
-}
+ .weather {
+ 	padding: 10px 0;
+ 	margin: 10px 0;
+ }
 
-	.select {
-		padding: 10px 0;
-		margin: 10px auto;
-		border: 1px solid black;
-	}
+ /* -----SELECT----- */
+ .pure-g [class *= "select"] {
+ 	font-family: 'Alfa Slab One', serif;
+ 	font-size: 3.0em;
+ }
+
+ .select {
+ 	padding: 10px 0;
+ 	width: 100%;
+ 	margin: 10px auto;
+ 	border: 1px solid black;
+ }
 
 
-/* -----BUTTONS----- */
-.pure-g [class *= "button-font"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 2.75em;
-}
+ /* -----BUTTONS----- */
+ .pure-g [class *= "button-font"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 2.75em;
+ }
 
-	.greeter, .meeter {
-		padding: 10px 0;
-		margin: 10px auto;
-		color: #000000;
-	}
+ .greeter, .meeter {
+ 	padding: 10px 0;
+ 	margin: 10px auto;
+ 	color: #000000;
+ }
 
-	.pure-button {
-		padding: 20px;
-		border-radius: 25px;
-		background-color: #ffffff;
-		color: #000000;
-		border: 1px solid #000000;
-	}
+ .pure-button {
+ 	padding: 20px;
+ 	border-radius: 25px;
+ 	background-color: #ffffff;
+ 	color: #000000;
+ 	border: 1px solid #000000;
+ }
 
-	.greeter-button, .meeter-button {
-		padding: 20px 50px;
-	}
+ .greeter-button, .meeter-button {
+ 	padding: 20px 50px;
+ }
 
-	button:active {
-		transform: translateY(3px);
-	}
+ button:active {
+ 	transform: translateY(3px);
+ }
 
-/* -----ABOUT----- */
-.pure-g [class *= "about"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.25em;
-}
+ /* -----FORMS----- */
+ #name, #event, #location {
+ 	width: 50%;
+ }
 
-	.about {
-		padding: 10px 0;
-		margin: 10px auto;
-	}
+ /* -----GREETER/MEETER PAGE----- */
+ .pure-g [class *= "create-event"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.5em;
+ }
+ .create-event, .display-event {
+ 	padding: 10px 0;
+ 	margin: 10px auto;
+ }
 
-	.pure-g [class *= "dev"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.25em;
-	}
+ header, .explain, .select, .about {
+ 	margin: 10px auto;
+ 	padding: 10px 0;
+ 	max-width: 60%;
+ 	background-color: #ffffff;
+ 	border: 1px solid #000000;
+ 	border-radius: 25px;
+ }
 
-	.dev-header {
-		margin: 10px auto;
-		padding: 10px 0;
-		background-color: #ffffff;
-		border: 1px solid #000000;
-		border-radius: 25px;
-		width: 75%;
-	}
+ .weather, .greeter-form {
+ 	margin: 10px auto;
+ 	max-width: 768px;
+ 	background-color: #ffffff;
+ 	border: 1px solid #000000;
+ 	border-radius: 25px;
+ }
 
-	.pure-g [class *= "dev-header"] {
-	font-family: 'Alfa Slab One', serif;
-	font-size: 2.75em;
-	}
+ .display-event {
+ 	margin: 10px auto;
+ 	max-width: 100%;
+ 	background-color: #ffffff;
+ 	border: 1px solid #000000;
+ 	border-radius: 25px;
+ }
 
-	.dev-pic {
-		width: 150px;
-		height: 200px;
-	}
+ table, tr {
+ 	margin: 10px auto;
+ 	width: 100%;
+ 	background-color: #ffffff;
+ }
 
-/* -----GREETER/MEETER PAGE----- */
-.pure-g [class *= "create-event"] {
-	font-family: 'Quattrocento', serif;
-	font-size: 1.5em;
-}
-	.create-event, .display-event {
-		padding: 10px 0;
-		margin: 10px auto;
-	}
+ .pure-table {
+ 	border: none;
+ }
 
-	header, .explain, .select, .greeter-form, .about, .weather {
-		margin: 10px auto;
-		max-width: 768px;
-		background-color: #ffffff;
-		border: 1px solid #000000;
-		border-radius: 25px;
-	}
+ tr {
+ 	text-align: center;
+ }
 
-	.display-event {
-		margin: 10px auto;
-		max-width: 100%;
-		background-color: #ffffff;
-		border: 1px solid #000000;
-		border-radius: 25px;
-	}
+ .pure-g [class *= "event-header"] {
+ 	font-family: 'Alfa Slab One', serif;
+ 	font-size: 1.50em;
+ }
 
-	table, tr {
-		margin: 10px auto;
-		width: 100%;
-		background-color: #ffffff;
-	}
+ /* -----ABOUT----- */
+.pure-g [class *= "dev-header"] {
+ 	font-family: 'Alfa Slab One', serif;
+ 	font-size: 3.0em;
+ }
 
-	.pure-table {
-		border: none;
-	}
+ .pure-g [class *= "about"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.25em;
+ }
 
-	tr {
-		text-align: center;
-	}
+.dev-header {
+	margin: 10px auto;
+ 	padding: 10px 0;
+ 	max-width: 85%;
+ 	background-color: #ffffff;
+ 	border: 1px solid #000000;
+ 	border-radius: 25px;
+ }
 
-	.pure-g [class *= "event-header"] {
-		font-family: 'Alfa Slab One', serif;
-		font-size: 1.50em;
-	}
+ .pure-g [class *= "dev-pic"] {
+ 	font-family: 'Quattrocento', serif;
+ 	font-size: 1.25em;
+ }
+
+ .dev-pic {
+ 	margin: auto;
+ 	padding: 10px;
+ 	background-color: #ffffff;
+ 	border: 1px solid #000000;
+ 	border-radius: 25px;
+ }
+
+ .pure-img {
+ 	margin-left: auto;
+ 	margin-right: auto;
+ }
