@@ -117,7 +117,7 @@ $(document).ready(function(){
         var config = {
             apiKey: "AIzaSyAboCNAM8LyGsG2dV-fzJBiZu4UVQhxgHk",
             authDomain: "meetupschedule-ab2c2.firebaseapp.com",
-            databaseURL: "https://meetupschedule-ab2c2.firebaseio.com",
+            databaseURL: "https://meetupschedule-ab2c2.firebaseio.com/",
             projectId: "meetupschedule-ab2c2",
             storageBucket: "",
             messagingSenderId: "799738528055"
