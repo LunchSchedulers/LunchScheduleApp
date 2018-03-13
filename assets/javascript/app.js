@@ -140,12 +140,16 @@ $(document).ready(function(){
     function putUserEntryInEventObject(){ //Rewrite to interact with greeter page
     // pulls in user information and converts info to appropriate formats
         var localEventKey = Math.ceil(Math.random()*$("#lat-input").val());
+        var startTimeToChangeToUnix = $("#greeter-date").val() + " " + $("#startEvent").val();
+        var endTimeToChangeToUnix = $("#greeter-date").val() + " " + $("#end").val();
+
+        
         var userEvent = {
             // direct user inputs
             greeterName: $("#name").val(),
             eventName: $("#event").val(),
-            eventStartTime: $("#greeter-date").val() + " " + $("#start").val(),
-            eventEndTime: $("#greeter-date").val() + " " + $("#end").val(),
+            eventStartTime: convertStringToUnixTime(startTimeToChangeToUnix),
+            eventEndTime: convertStringToUnixTime(endTimeToChangeToUnix),
 
             // info received from google location search
             // need to integrate with places.js
