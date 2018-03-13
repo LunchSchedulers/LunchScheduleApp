@@ -128,6 +128,9 @@ $(document).ready(function(){
     function testPushToDatabase(){  // DELETE eventually
         var eventToPush = putUserEntryInEventObject();
         database.ref().push(eventToPush);
+        $("input").val("");
+        $("#startEvent").val("");
+        $("#end").val("");
     }
     function populateFireBaseWithEventInfo(){ // WORKS
         // Gets info from user entry, pushes to firebase and clears user fields
