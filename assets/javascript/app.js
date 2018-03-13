@@ -146,7 +146,6 @@ $(document).ready(function(){
         var startTimeToChangeToUnix = $("#greeter-date").val() + " " + $("#startEvent").val();
         var endTimeToChangeToUnix = $("#greeter-date").val() + " " + $("#end").val();
 
-        
         var userEvent = {
             // direct user inputs
             greeterName: $("#name").val(),
