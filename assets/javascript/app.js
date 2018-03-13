@@ -187,6 +187,8 @@ $(document).ready(function(){
         // jquery stuff
     }
     function displayProximateEventsToMeeterPage() {
+        $("#appendTableInfoHere tbody").remove();
+
         var userSelectedProximity = $("#radius").val();
         console.log(userSelectedProximity);
         var arrayToPopulateDivsWith = returnArrayToPopulateDivs(userSelectedProximity);
