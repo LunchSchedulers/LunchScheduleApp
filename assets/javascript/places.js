@@ -22,6 +22,8 @@ function getInfo(addressLat, addressLng) {
   console.log(longitude, latitude)
 }
 
+
+
 //initializes google api Autocomplete//
 //↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ //
 function initAutocomplete(lat, long) {
@@ -53,12 +55,16 @@ function initAutocomplete(lat, long) {
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     console.log(places[0])
+    var googleInfoLatAndLong = {
+      googleLat: places[0].geometry.location.lat(),
+      googleLong: places[0].geometry.location.lng()
+    }
+    console.log(googleInfoLatAndLong);
     console.log(places[0].address_components)
     var addressComponents= places[0].address_components;
     console.log(places.address_components)
 
     addressString = places[0].address_components[0].long_name+ " " + places[0].address_components[1].long_name + " " + places[0].address_components[2].long_name + ", " + places[0].address_components[4].short_name + " " + places[0].address_components[6].long_name
-
     console.log(addressString)
 
     // Clear out the old markers.
