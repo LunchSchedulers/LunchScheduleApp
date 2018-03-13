@@ -2,7 +2,7 @@
 Meet Me There is a lightweight social application. There's no account to create, and the events are removed from the database soon after ending. Create or search for an event near you, and go meet new people.
 
 ## Live Site
-[Meet Me There]
+[Meet Me There](https://lunchschedulers.github.io/LunchScheduleApp/)
 
 ## Technologies Utilized
 1. HTML5
