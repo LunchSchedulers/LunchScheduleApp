@@ -144,21 +144,21 @@ $(document).ready(function(){
             // direct user inputs
             greeterName: $("#name").val(),
             eventName: $("#event").val(),
-            eventStartTime: $("#greeter-date").val() + $("#start").val(),
-            eventEndTime: $("#greeter-date").val() + $("#end").val(),
+            eventStartTime: $("#greeter-date").val() + " " + $("#start").val(),
+            eventEndTime: $("#greeter-date").val() + " " + $("#end").val(),
 
             // info received from google location search
             // need to integrate with places.js
-            latitudeOfEvent: parseInt($("#lat-input").val()),
-            longitudeOfEvent: parseInt($("#long-input").val()),
-            addressOfEvent: $("#eventAddress-input").val(),
-            nameOfEventLocation: $("#locationName-input").val(),
+            latitudeOfEvent: googleInfoLatAndLong.googleLat,
+            longitudeOfEvent: googleInfoLatAndLong.googleLong,
+            addressOfEvent: addressString,
+            nameOfEventLocation: addressString,
 
             
             // stuff we probably don't need
             eventAdded:parseInt(convertStringToUnixTime(Date.now())),
-            eventKey:localEventKey,
-            eventExpiryTime:parseInt($("#endTime-input").val())+(30*60)
+            // eventKey:localEventKey,
+            // eventExpiryTime:parseInt($("#endTime-input").val())+(30*60)
         }
         console.log(userEvent);
         return userEvent;
@@ -251,7 +251,10 @@ $(document).ready(function(){
         console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
         displayProximateEventsToMeeterPage();
     });
-    
+    $("#submit").on("click", function() { // proximity search
+        event.preventDefault();
+        testPushToDatabase();
+    });
 
     // page load activities
     getLocation();

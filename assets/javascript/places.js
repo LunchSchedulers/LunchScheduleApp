@@ -4,6 +4,7 @@ var addressLng; //address selected from autocomplete searchbar longitude//
 var latitude; //latitude of users current location//
 var longitude; //longitude of users current location//
 var addressString; //string of address array from google api//
+var googleInfoLatAndLong;
 
 //gets users current latitude and longitude//↓ ↓ ↓ ↓ 
 navigator.geolocation.getCurrentPosition(function(position) {
@@ -65,7 +66,8 @@ function initAutocomplete(lat, long) {
     console.log(places.address_components)
 
     addressString = places[0].address_components[0].long_name+ " " + places[0].address_components[1].long_name + " " + places[0].address_components[2].long_name + ", " + places[0].address_components[4].short_name + " " + places[0].address_components[6].long_name
-    console.log(addressString)
+    console.log(addressString);
+    console.log(googleInfoLatAndLong);
 
     // Clear out the old markers.
     markers.forEach(function(marker) {
