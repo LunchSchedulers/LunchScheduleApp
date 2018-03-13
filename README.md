@@ -1,6 +1,9 @@
 # Meet Me There
 Meet Me There is a lightweight social application. There's no account to create, and the events are removed from the database soon after ending. Create or search for an event near you, and go meet new people.
 
+## Live Site
+[Meet Me There]
+
 ## Technologies Utilized
 1. HTML5
 2. [Pure.css](https://purecss.io/)
@@ -11,7 +14,7 @@ Meet Me There is a lightweight social application. There's no account to create,
 7. [Google Places API](https://developers.google.com/places/)
 8. [Dark Sky API](https://darksky.net/dev)
 
-![alt text](assets/images/powerby.png)
+![Dark Sky Logo](/assets/images/powerby.png)
 
 ## Developers
 - Grey Arnold
