@@ -12,9 +12,8 @@ Meet Me There is a lightweight social application. There's no account to create,
 5. [Firebase](https://firebase.google.com/)
 6. [Moment.js](https://momentjs.com/)
 7. [Google Places API](https://developers.google.com/places/)
-8. [Dark Sky API](https://darksky.net/dev)
+8. [Powered by Dark Sky](https://darksky.net/poweredby/)
 
-![Dark Sky Logo](/assets/images/powerby.png)
 
 ## Developers
 - Grey Arnold
