@@ -56,7 +56,7 @@ function initAutocomplete(lat, long) {
   searchBox.addListener('places_changed', function() {
     var places = searchBox.getPlaces();
     console.log(places[0])
-    var googleInfoLatAndLong = {
+    googleInfoLatAndLong = {
       googleLat: places[0].geometry.location.lat(),
       googleLong: places[0].geometry.location.lng()
     }
