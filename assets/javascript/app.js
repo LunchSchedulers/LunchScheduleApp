@@ -183,7 +183,7 @@ $(document).ready(function(){
     function displayProximateEventsToMeeterPage() {
         var userSelectedProximity = $("#radius").val();
         console.log(userSelectedProximity);
-        var arrayToPopulateDivsWith = returnArrayOfAllEventsWithinProximityWindow(currentLocation,userSelectedProximity);
+        var arrayToPopulateDivsWith = returnArrayToPopulateDivs(userSelectedProximity);
         for (var i = 0; i < arrayToPopulateDivsWith.length; i++){
             var tr = $("<tr>");
 
