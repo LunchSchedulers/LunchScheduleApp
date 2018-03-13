@@ -150,6 +150,7 @@ $(document).ready(function(){
             // direct user inputs
             greeterName: $("#name").val(),
             eventName: $("#event").val(),
+            nameOfEventLocation: $("#locationName").val(),
             eventStartTime: convertStringToUnixTime(startTimeToChangeToUnix),
             eventEndTime: convertStringToUnixTime(endTimeToChangeToUnix),
 
@@ -158,7 +159,7 @@ $(document).ready(function(){
             latitudeOfEvent: googleInfoLatAndLong.googleLat,
             longitudeOfEvent: googleInfoLatAndLong.googleLong,
             addressOfEvent: addressString,
-            nameOfEventLocation: addressString,
+            // nameOfEventLocation: addressString,
 
             
             // stuff we probably don't need
@@ -166,7 +167,7 @@ $(document).ready(function(){
             // eventKey:localEventKey,
             // eventExpiryTime:parseInt($("#endTime-input").val())+(30*60)
         }
-        console.log(userEvent);
+        // console.log(userEvent);
         return userEvent;
     }
     function pushEventToDatabase(){  // Works update for greeter page
@@ -235,19 +236,19 @@ $(document).ready(function(){
             url: weatherQueryURL,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
-            console.log(response.currently.apparentTemperature + " " + response.currently.summary);
+            // console.log(response);
+            // console.log(response.currently.apparentTemperature + " " + response.currently.summary);
             $("#testWeather").html(Math.floor(response.currently.apparentTemperature) + "&deg;F " + response.currently.summary);
         });
     }
 
     // Click listeners
     $("#click-button").on("click", function() { // DELETE - used for testing
-        console.log("clicked");
+        // console.log("clicked");
         testPushToDatabase();
     });
     $("#proxTest").on("click", function() { // DELETE - used for testing
-        console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
+        // console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
     });
     $("#get-weather").on("click", function() { // DELETE - used for testing
         event.preventDefault();
@@ -255,8 +256,8 @@ $(document).ready(function(){
     });
     $("#search").on("click", function() { // proximity search
         event.preventDefault();
-        console.log("prox search clicked:");
-        console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
+        // console.log("prox search clicked:");
+        // console.log(returnArrayOfAllEventsWithinProximityWindow(currentLocation,5));
         displayProximateEventsToMeeterPage();
     });
     $("#submit").on("click", function() { // proximity search
@@ -272,8 +273,8 @@ $(document).ready(function(){
         arrayOfAllEvents.push(sv);
         var theKey = snapshot.key;
         arrayOfEventKeys.push(theKey);
-        console.log(arrayOfAllEvents);
-        console.log(arrayOfEventKeys);
+        // console.log(arrayOfAllEvents);
+        // console.log(arrayOfEventKeys);
     }, function(errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
